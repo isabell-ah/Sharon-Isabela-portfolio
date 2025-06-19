@@ -142,6 +142,69 @@ const Projects = () => {
             </a>
           </Button>
         </div>
+        {/* Security Labs Section */}
+        <div className='mt-16'>
+          <div className='text-center mb-8'>
+            <Badge variant='outline' className='mb-4'>
+              Security Labs
+            </Badge>
+            <h3 className='text-2xl font-bold mb-4'>
+              Hands-On Security Projects
+            </h3>
+            <p className='text-muted-foreground'>
+              Practical security implementations and vulnerability assessments
+            </p>
+          </div>
+
+          <div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
+            {[
+              {
+                title: 'Network Security Lab',
+                description:
+                  'Implemented firewall rules, intrusion detection, and network monitoring protocols',
+                tags: ['Firewall', 'IDS', 'Network Monitoring'],
+                image: '/labs/lab1.png',
+                icon: '🛡️',
+              },
+
+              {
+                title: 'API Security Testing',
+                description:
+                  'Penetration testing, authentication bypass, and secure API design patterns',
+                tags: ['Penetration Testing', 'API Security', 'Authentication'],
+                image: '/labs/lab3.png',
+                icon: '🔐',
+              },
+            ].map((lab, index) => (
+              <Card
+                key={index}
+                className='overflow-hidden hover:shadow-md transition-shadow'
+              >
+                <div className='h-32 overflow-hidden'>
+                  <img
+                    src={lab.image}
+                    alt={lab.title}
+                    className='w-full h-full object-cover transition-transform duration-300 hover:scale-105'
+                  />
+                </div>
+                <div className='p-4'>
+                  <div className='text-3xl mb-2'>{lab.icon}</div>
+                  <h4 className='font-semibold text-lg mb-2'>{lab.title}</h4>
+                  <p className='text-sm text-muted-foreground mb-3'>
+                    {lab.description}
+                  </p>
+                  <div className='flex flex-wrap gap-1'>
+                    {lab.tags.map((tag) => (
+                      <Badge key={tag} variant='secondary' className='text-xs'>
+                        {tag}
+                      </Badge>
+                    ))}
+                  </div>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
